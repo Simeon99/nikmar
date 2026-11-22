@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<title>Nikmar Gradnja – Temelji sistema</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#190C9C}a:hover{color:#1C1D20}
+@keyframes nkDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes nkGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.nk-draw path,.nk-draw line,.nk-draw rect{stroke-dasharray:1;stroke-dashoffset:1;animation:nkDraw 2.4s cubic-bezier(0.65,0,0.35,1) forwards}
+.nk-draw .d2{animation-delay:.4s}.nk-draw .d3{animation-delay:.8s}.nk-draw .d4{animation-delay:1.2s}
+.nk-grow{transform-origin:left center;animation:nkGrow 1.8s cubic-bezier(0.16,1,0.3,1) forwards}
+@media (prefers-reduced-motion: reduce){.nk-draw path,.nk-draw line,.nk-draw rect{animation:none;stroke-dashoffset:0}.nk-grow{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 3000px; box-sizing: border-box; background: #F4F2EE; color: #1C1D20; font-family: Manrope, sans-serif; display: flex; flex-direction: column">
+
+<header style="background: #1C1D20; color: #F4F2EE; padding: 72px 80px 96px; display: flex; flex-direction: column; gap: 96px">
+<div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(175,182,208,0.35); padding-bottom: 24px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase">Nikmar Gradnja</span>
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #AFB6D0">Sistem dizajna · v0.1</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: end">
+<h1 style="grid-column: span 8; margin: 0; font-size: 128px; line-height: 0.95; font-weight: 200; letter-spacing: -0.03em">Temelji <span style="font-weight: 600">sistema</span></h1>
+<p style="grid-column: 10 / span 3; margin: 0; font-size: 16px; line-height: 1.6; color: #8A8F99">Tokeni, tipografija, linijski motiv, mreža i pokret. Sve naredne sekcije sajta grade se isključivo iz ovih elemenata.</p>
+</div>
+</header>
+
+<section style="padding: 96px 80px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; align-items: baseline; gap: 24px; border-top: 1px solid #1C1D20; padding-top: 20px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; color: #5E626B">01</span>
+<h2 style="margin: 0; font-size: 48px; font-weight: 300; letter-spacing: -0.02em">Boja</h2>
+</div>
+<div style="display: flex; height: 12px; width: 100%">
+<div style="flex: 70; background: linear-gradient(90deg, #1C1D20 0 50%, #F4F2EE 50% 100%); border: 1px solid #1C1D20"></div>
+<div style="flex: 25; background: #8A8F99"></div>
+<div style="flex: 5; background: #190C9C"></div>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B; margin-top: -32px">
+<span>70% grafit + topla bela</span><span>25% fotografija i renderi</span><span>5% akcenti</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px"><div style="height: 200px; background: #1C1D20"></div><span style="font-size: 15px; font-weight: 600">Grafit</span><span style="font-size: 13px; line-height: 1.5; color: #5E626B">#1C1D20 · --nk-graphite<br>Osnovna podloga, tekst na svetlom (15:1)</span></div>
+<div style="display: flex; flex-direction: column; gap: 16px"><div style="height: 200px; background: #F4F2EE; border: 1px solid #D9D6CF"></div><span style="font-size: 15px; font-weight: 600">Topla bela</span><span style="font-size: 13px; line-height: 1.5; color: #5E626B">#F4F2EE · --nk-paper<br>Svetla podloga, tekst na grafitu (15:1)</span></div>
+<div style="display: flex; flex-direction: column; gap: 16px"><div style="height: 200px; background: #AFB6D0"></div><span style="font-size: 15px; font-weight: 600">Plavo-siva</span><span style="font-size: 13px; line-height: 1.5; color: #5E626B">#AFB6D0 · --nk-mist<br>Linije i aktivna stanja na grafitu (8.4:1). Na beloj samo dekor (1.8:1)</span></div>
+<div style="display: flex; flex-direction: column; gap: 16px"><div style="height: 200px; background: #8A8F99"></div><span style="font-size: 15px; font-weight: 600">Sekundarna siva</span><span style="font-size: 13px; line-height: 1.5; color: #5E626B">#8A8F99 · --nk-stone<br>Sekundarni tekst na grafitu (5.2:1). Na beloj pada (2.9:1)</span></div>
+<div style="display: flex; flex-direction: column; gap: 16px"><div style="height: 200px; background: #190C9C"></div><span style="font-size: 15px; font-weight: 600">Kontrastna plava</span><span style="font-size: 13px; line-height: 1.5; color: #5E626B">#190C9C · --nk-signal<br>Interakcija i izbor, samo na svetlom (11.9:1). Na grafitu nevidljiva (1.3:1)</span></div>
+<div style="display: flex; flex-direction: column; gap: 16px"><div style="height: 200px; background: #5E626B"></div><span style="font-size: 15px; font-weight: 600">Grafit 60 <span style="font-weight: 400; color: #5E626B">(izveden)</span></span><span style="font-size: 13px; line-height: 1.5; color: #5E626B">#5E626B · --nk-ink-muted<br>Zamena za #8A8F99 kad je sitan tekst na beloj (5.5:1)</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div style="background: #1C1D20; color: #F4F2EE; padding: 40px; display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Na grafitu · aktivno stanje</span>
+<div style="display: flex; gap: 32px; font-size: 15px"><span style="color: #AFB6D0; border-bottom: 1px solid #AFB6D0; padding-bottom: 6px">Projekti</span><span>Stanovi</span><span>O nama</span></div>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D9D6CF; padding: 40px; display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Na beloj · aktivno stanje</span>
+<div style="display: flex; gap: 32px; font-size: 15px"><span style="color: #190C9C; border-bottom: 1px solid #190C9C; padding-bottom: 6px">Projekti</span><span>Stanovi</span><span>O nama</span></div>
+</div>
+</div>
+</section>
+
+<section style="padding: 0 80px 96px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; align-items: baseline; gap: 24px; border-top: 1px solid #1C1D20; padding-top: 20px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; color: #5E626B">02</span>
+<h2 style="margin: 0; font-size: 48px; font-weight: 300; letter-spacing: -0.02em">Tipografija · Manrope</h2>
+</div>
+<div style="display: flex; flex-direction: column">
+<div style="display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid #D9D6CF"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Display · 200<br>clamp(64, 9vw, 144)</span><span style="font-size: 128px; line-height: 0.95; font-weight: 200; letter-spacing: -0.035em">Prostor za <span style="font-weight: 600">život</span></span></div>
+<div style="display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid #D9D6CF"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">H1 · 200 / 600<br>clamp(44, 5.5vw, 80)</span><span style="font-size: 72px; line-height: 1; font-weight: 200; letter-spacing: -0.03em">Heroja sa Košara, <span style="font-weight: 600">Objekat 2</span></span></div>
+<div style="display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid #D9D6CF"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">H2 · 300<br>clamp(32, 3.4vw, 48)</span><span style="font-size: 48px; line-height: 1.1; font-weight: 300; letter-spacing: -0.02em">Pet objekata, dva grada</span></div>
+<div style="display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid #D9D6CF"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">H3 · 400<br>24–28</span><span style="font-size: 28px; line-height: 1.25; font-weight: 400">Jakšićeva 14, Kruševac</span></div>
+<div style="display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid #D9D6CF"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Body · 400<br>17–18 / 1.6</span><span style="font-size: 18px; line-height: 1.6; font-weight: 400; max-width: 640px">Tekst za opis projekta ide ovde. Maksimalna širina reda je 64 znaka, prored 1.6, bez obostranog poravnanja.</span></div>
+<div style="display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid #D9D6CF"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Label · 500<br>12 / +0.3em / caps</span><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase">Vrnjačka Banja · U izgradnji</span></div>
+<div style="display: grid; grid-template-columns: 240px 1fr; gap: 24px; align-items: end; padding: 28px 0"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B; padding-bottom: 24px">Broj · 200<br>tabular-nums</span><div style="display: flex; gap: 64px; align-items: baseline"><span style="font-size: 200px; line-height: 0.8; font-weight: 200; letter-spacing: -0.05em; font-variant-numeric: tabular-nums">05</span><div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 72px; line-height: 1; font-weight: 200; font-variant-numeric: tabular-nums">26</span><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Stanova</span></div></div></div>
+</div>
+</section>
+
+<section style="background: #1C1D20; color: #F4F2EE; padding: 96px 80px; display: flex; flex-direction: column; gap: 56px">
+<div style="display: flex; align-items: baseline; gap: 24px; border-top: 1px solid #AFB6D0; padding-top: 20px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; color: #8A8F99">03</span>
+<h2 style="margin: 0; font-size: 48px; font-weight: 300; letter-spacing: -0.02em">Linija · potpisni motiv</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 48px">
+<figure style="grid-column: span 5; margin: 0; display: flex; flex-direction: column; gap: 16px">
+<svg class="nk-draw" viewBox="0 0 400 360" width="100%" height="360" fill="none" stroke="#AFB6D0" stroke-width="1.25" aria-hidden="true">
+<path pathLength="1" d="M40 340 H360"></path>
+<path pathLength="1" class="d2" d="M80 340 V80 H320 V340"></path>
+<path pathLength="1" class="d3" d="M80 140 H320 M80 200 H320 M80 260 H320"></path>
+<path pathLength="1" class="d4" d="M160 80 V340 M240 80 V340"></path>
+<rect pathLength="1" class="d4" x="168" y="208" width="64" height="44" stroke="#F4F2EE" stroke-width="2"></rect>
+</svg>
+<figcaption style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Crtanje fasade · stroke-dashoffset · 2.4s</figcaption>
+</figure>
+<div style="grid-column: 7 / span 6; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Razdelnik sekcije · 1px</span><div class="nk-grow" style="height: 1px; background: #AFB6D0"></div></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Napredak skrola · 2px</span><div style="height: 2px; background: rgba(175,182,208,0.2)"><div class="nk-grow" style="height: 2px; width: 38%; background: #F4F2EE"></div></div></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Indikator sprata</span>
+<div style="display: flex; flex-direction: column; border-left: 1px solid rgba(175,182,208,0.35)">
+<div style="display: flex; align-items: center; gap: 16px; padding: 8px 0 8px 20px; font-size: 15px; color: #8A8F99"><span style="font-variant-numeric: tabular-nums">04</span><span>Sprat</span></div>
+<div style="display: flex; align-items: center; gap: 16px; padding: 8px 0 8px 20px; font-size: 15px; color: #F4F2EE; border-left: 2px solid #AFB6D0; margin-left: -1px"><span style="font-variant-numeric: tabular-nums; font-weight: 600">03</span><span>Sprat · izabran</span></div>
+<div style="display: flex; align-items: center; gap: 16px; padding: 8px 0 8px 20px; font-size: 15px; color: #8A8F99"><span style="font-variant-numeric: tabular-nums">02</span><span>Sprat</span></div>
+<div style="display: flex; align-items: center; gap: 16px; padding: 8px 0 8px 20px; font-size: 15px; color: #8A8F99"><span style="font-variant-numeric: tabular-nums">01</span><span>Sprat</span></div>
+</div></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #8A8F99">Pravila: samo 1px (strukturne) i 2px (aktivne) linije, pravi uglovi, bez senki. Crtež fasade je privremena skica dok ne stigne vektorski NIKMAR logo, iz kog izvodimo pravu liniju.</p>
+</div>
+</div>
+</section>
+
+<section style="padding: 96px 80px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; align-items: baseline; gap: 24px; border-top: 1px solid #1C1D20; padding-top: 20px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; color: #5E626B">04</span>
+<h2 style="margin: 0; font-size: 48px; font-weight: 300; letter-spacing: -0.02em">Mreža i razmak</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; height: 160px; border-left: 1px dashed #8A8F99; border-right: 1px dashed #8A8F99; padding: 0 0">
+<div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div><div style="background: rgba(25,12,156,0.06); border-left: 1px solid rgba(25,12,156,0.25); border-right: 1px solid rgba(25,12,156,0.25)"></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; font-size: 15px; line-height: 1.6">
+<div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #D9D6CF; padding-top: 16px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Desktop ≥1280</span><span>12 kolona · gutter 24 · margina 80 · max 1600</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #D9D6CF; padding-top: 16px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Tablet 768–1279</span><span>8 kolona · gutter 20 · margina 40</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #D9D6CF; padding-top: 16px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Mobilni &lt;768</span><span>4 kolone · gutter 16 · margina 20</span></div>
+</div>
+<div style="display: flex; align-items: flex-end; gap: 32px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 4px; height: 4px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">4</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 8px; height: 8px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">8</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 16px; height: 16px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">16</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 24px; height: 24px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">24</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 32px; height: 32px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">32</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 48px; height: 48px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">48</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 64px; height: 64px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">64</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 96px; height: 96px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">96</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 128px; height: 128px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">128</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px"><div style="width: 192px; height: 192px; background: #1C1D20"></div><span style="font-size: 12px; color: #5E626B">192 · sekcija</span></div>
+</div>
+</section>
+
+<section style="padding: 0 80px 96px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; align-items: baseline; gap: 24px; border-top: 1px solid #1C1D20; padding-top: 20px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; color: #5E626B">05</span>
+<h2 style="margin: 0; font-size: 48px; font-weight: 300; letter-spacing: -0.02em">Pokret · tokeni</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #D9D6CF; padding-top: 16px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Brzo · 0.3s</span><span style="font-size: 15px; line-height: 1.6">Hover, fokus, boja linka</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #D9D6CF; padding-top: 16px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Osnovno · 0.8s</span><span style="font-size: 15px; line-height: 1.6">Ulazak teksta, stagger 0.08s</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #D9D6CF; padding-top: 16px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Sporo · 1.4s</span><span style="font-size: 15px; line-height: 1.6">Clip-path otkrivanje slike, meni</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #D9D6CF; padding-top: 16px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Scrub · skrol</span><span style="font-size: 15px; line-height: 1.6">Paralaksa, pinovane sekcije, crtanje linija</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; font-size: 15px; line-height: 1.6">
+<div style="background: #FFFFFF; border: 1px solid #D9D6CF; padding: 32px; display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 600">ease-out-expo · cubic-bezier(0.16, 1, 0.3, 1)</span><span style="color: #5E626B">Sve što ulazi u kadar. GSAP: "expo.out".</span></div>
+<div style="background: #FFFFFF; border: 1px solid #D9D6CF; padding: 32px; display: flex; flex-direction: column; gap: 8px"><span style="font-weight: 600">ease-in-out · cubic-bezier(0.65, 0, 0.35, 1)</span><span style="color: #5E626B">Prelazi između stanja, maske, meni. GSAP: "power3.inOut".</span></div>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

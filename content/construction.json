@@ -1,0 +1,18 @@
+{
+  "_cms": "Polja iz CMS-a. Menjaju se bez izmene koda.",
+  "project": "heroja-sa-kosara-objekat-2",
+  "phases": [
+    "Konstrukcija",
+    "Krov",
+    "Stolarija",
+    "Struja i voda",
+    "Završni radovi",
+    "Useljenje"
+  ],
+  "currentPhaseIndex": 3,
+  "statusText": "Zgrada je pod krovom. Prozori su postavljeni. Sada se rade struja i voda.",
+  "statusDate": "13. 11. 2026.",
+  "moveInDate": null,
+  "heroCardText": "Objekat 2. Pod krovom je, prozori su postavljeni. Sada se rade struja i voda.",
+  "sitePhotos": []
+}

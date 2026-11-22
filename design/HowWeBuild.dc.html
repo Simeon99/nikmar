@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<title>Nikmar Gradnja – Početna, sekcija Kako gradimo</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+button:focus-visible{outline:1px solid #AFB6D0;outline-offset:4px}
+.nk-step:hover{color:#AFB6D0 !important}
+.nk-mob{display:none}
+@media (max-width:768px){
+.nk-root{height:auto !important;padding:72px 24px !important}
+.nk-grid{display:flex !important;flex-direction:column !important}
+.nk-drawing{order:-1;margin-bottom:24px}
+.nk-stack{height:auto !important}
+.nk-takt{position:static !important;opacity:1 !important;transform:none !important;margin-top:56px}
+.nk-steps,.nk-tl,.nk-big{display:none !important}
+.nk-mob{display:block}
+.nk-l{stroke-dashoffset:0 !important;stroke:#F4F2EE !important;transition:none !important}
+.nk-dim{opacity:1 !important}
+}
+@media (prefers-reduced-motion: reduce){
+.nk-l14{stroke-dashoffset:0 !important;stroke:#F4F2EE !important;transition:none !important}
+.nk-l5{transition:opacity .4s ease !important;stroke-dashoffset:0 !important}
+.nk-takt{transform:none !important}
+}
+</style>
+</helmet>
+<section class="nk-root" aria-label="Kako gradimo" style="position: relative; height: {{rootH}}; min-height: 640px; box-sizing: border-box; padding: 96px 80px 72px; background: #1C1D20; color: #F4F2EE; font-family: Manrope, sans-serif; overflow: hidden">
+<div class="nk-grid" style="height: 100%; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px">
+
+<div style="grid-column: 1 / span 5; display: flex; flex-direction: column; justify-content: space-between">
+<div class="nk-stack" style="position: relative; height: 460px">
+<sc-for list="{{takts}}" as="k" hint-placeholder-count="5">
+<div class="nk-takt" aria-hidden="{{k.hidden}}" style="position: absolute; top: 0; left: 0; right: 0; opacity: {{k.opacity}}; transform: {{k.transform}}; transition: opacity .6s ease, transform .6s cubic-bezier(0.16,1,0.3,1)">
+<div class="nk-mob" style="margin-bottom: 20px"><span style="display: block; width: 48px; height: 1px; background: #8A8F99; margin-bottom: 14px"></span><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #AFB6D0">{{k.layer}}</span></div>
+<span style="display: block; font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">{{k.label}}</span>
+<h2 style="margin: 24px 0 0; font-size: {{k.size}}; line-height: 1.05; font-weight: 200; letter-spacing: -0.02em">{{k.light}} <span style="font-weight: 600">{{k.bold}}</span></h2>
+<p style="margin: 32px 0 0; max-width: 36ch; font-size: 20px; line-height: 1.5; color: rgba(244,242,238,0.8)">{{k.text}}</p>
+<sc-if value="{{k.isTime}}" hint-placeholder-val="{{ false }}">
+<div class="nk-mob" style="margin-top: 32px">
+<span style="display: block; font-size: 96px; line-height: 1; font-weight: 200; letter-spacing: -0.04em">11,5</span>
+<div style="position: relative; margin-top: 24px; height: 1px; background: #F4F2EE"></div>
+<div style="display: flex; justify-content: space-between; margin-top: 14px; font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; line-height: 1.7">
+<span>12. 11. 2022.<br><span style="color: #8A8F99">Početak radova</span></span>
+<span style="text-align: right">30. 10. 2023.<br><span style="color: #8A8F99">Useljenje</span></span>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<nav class="nk-steps" aria-label="Koraci" style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<button class="nk-step" type="button" onClick="{{s.go}}" aria-current="{{s.current}}" style="min-height: 44px; padding: 0; background: none; border: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: {{s.color}}; cursor: pointer; transition: color .4s ease">{{s.label}}</button>
+<sc-if value="{{s.sep}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="color: #8A8F99">·</span></sc-if>
+</sc-for>
+</nav>
+</div>
+
+<div class="nk-drawing" style="grid-column: 7 / span 6; position: relative; display: flex; align-items: center">
+<div class="nk-big" style="position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: baseline; gap: 16px; opacity: {{bigOpacity}}; transition: opacity .8s ease .6s">
+<span style="font-size: 160px; line-height: 0.9; font-weight: 200; letter-spacing: -0.05em">11,5</span>
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Meseci</span>
+</div>
+<svg viewBox="0 0 720 660" width="100%" role="img" aria-label="Crtež preseka zida sa slojevima: blok, termoizolacija, fasada, zid između stanova i pod." fill="none" stroke-width="1.5" stroke-linecap="square" style="display: block; overflow: visible">
+<g class="nk-dim" style="opacity: {{dim}}; transition: opacity .8s ease">
+<g class="nk-l nk-l14" style="stroke: {{l1.col}}; stroke-dasharray: 1; stroke-dashoffset: {{l1.off}}; transition: {{l1.tr}}">
+<path pathLength="1" d="M260 120H380V520H260Z"></path>
+<path pathLength="1" stroke-width="1" d="M276 520L260 504M292 520L260 488M308 520L260 472M324 520L260 456M340 520L260 440M356 520L260 424M372 520L260 408M380 512L260 392M380 496L260 376M380 480L260 360M380 464L260 344M380 448L260 328M380 432L260 312M380 416L260 296M380 400L260 280M380 384L260 264M380 368L260 248M380 352L260 232M380 336L260 216M380 320L260 200M380 304L260 184M380 288L260 168M380 272L260 152M380 256L260 136M380 240L260 120M380 224L276 120M380 208L292 120M380 192L308 120M380 176L324 120M380 160L340 120M380 144L356 120M380 128L372 120"></path>
+<path pathLength="1" d="M260 76H380V120H260Z M270 84H370V112H270Z M273 92a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M361 92a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M273 104a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M361 104a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+</g>
+<g class="nk-l nk-l14" style="stroke: {{l2.col}}; stroke-dasharray: 1; stroke-dashoffset: {{l2.off}}; transition: {{l2.tr}}">
+<path pathLength="1" d="M196 76H260V520H196Z M204 76V520"></path>
+<path pathLength="1" stroke-width="1" d="M208 76L256 90L208 104L256 118L208 132L256 146L208 160L256 174L208 188L256 202L208 216L256 230L208 244L256 258L208 272L256 286L208 300L256 314L208 328L256 342L208 356L256 370L208 384L256 398L208 412L256 426L208 440L256 454L208 468L256 482L208 496L256 510L208 520"></path>
+<path pathLength="1" d="M430 120H520V250H430Z M442 132H508V238H442Z M466 132V238 M475 132V238 M484 132V238"></path>
+</g>
+<g class="nk-l nk-l14" style="stroke: {{l3.col}}; stroke-dasharray: 1; stroke-dashoffset: {{l3.off}}; transition: {{l3.tr}}">
+<path pathLength="1" d="M600 280H660V520H600Z"></path>
+<path pathLength="1" stroke-width="1" d="M607 520L600 513M614 520L600 506M621 520L600 499M628 520L600 492M635 520L600 485M642 520L600 478M649 520L600 471M656 520L600 464M660 517L600 457M660 510L600 450M660 503L600 443M660 496L600 436M660 489L600 429M660 482L600 422M660 475L600 415M660 468L600 408M660 461L600 401M660 454L600 394M660 447L600 387M660 440L600 380M660 433L600 373M660 426L600 366M660 419L600 359M660 412L600 352M660 405L600 345M660 398L600 338M660 391L600 331M660 384L600 324M660 377L600 317M660 370L600 310M660 363L600 303M660 356L600 296M660 349L600 289M660 342L600 282M660 335L605 280M660 328L612 280M660 321L619 280M660 314L626 280M660 307L633 280M660 300L640 280M660 293L647 280M660 286L654 280"></path>
+</g>
+<g class="nk-l nk-l14" style="stroke: {{l4.col}}; stroke-dasharray: 1; stroke-dashoffset: {{l4.off}}; transition: {{l4.tr}}">
+<path pathLength="1" d="M196 520H700V560H196Z"></path>
+<path pathLength="1" stroke-width="1" d="M220 548a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M300 548a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M380 548a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M460 548a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M540 548a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M620 548a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+<path pathLength="1" d="M380 512H600"></path>
+</g>
+</g>
+<g class="nk-l nk-l5 nk-tl" style="stroke: {{l5.col}}; stroke-dasharray: 1; stroke-dashoffset: {{l5.off}}; transition: {{l5.tr}}">
+<path pathLength="1" d="M120 600H640"></path>
+<path pathLength="1" d="M115 600a5 5 0 1 0 10 0a5 5 0 1 0 -10 0 M635 600a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"></path>
+</g>
+<g class="nk-tl" style="opacity: {{tlText}}; transition: opacity .6s ease 1.2s" fill="#F4F2EE" stroke="none" font-family="Manrope, sans-serif" font-size="12" font-weight="500" letter-spacing="3.6">
+<text x="112" y="632">12. 11. 2022.</text>
+<text x="112" y="652" fill="#8A8F99">POČETAK RADOVA</text>
+<text x="648" y="632" text-anchor="end">30. 10. 2023.</text>
+<text x="648" y="652" text-anchor="end" fill="#8A8F99">USELJENJE</text>
+</g>
+</svg>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"step":{"editor":"int","min":0,"max":6,"default":3},"scrollStep":{"editor":null},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+const step = this.props.scrollStep ?? this.state.step ?? (this.props.step ?? 3);
+const draw = '#AFB6D0', done = '#F4F2EE';
+const layer = (i, dur) => {
+const on = step >= i;
+return { off: on ? 0 : 1, col: on ? done : draw, tr: 'stroke-dashoffset ' + dur + 's cubic-bezier(0.65,0,0.35,1), stroke .5s ease ' + dur + 's' };
+};
+const data = [
+{ layer: 'Zid', label: 'Kako gradimo', light: 'Od temelja do', bold: 'ključa.', text: 'Zidane zgrade, sa armirano betonskim serklažima. Bez montažnih zidova i bez prečica.' },
+{ layer: 'Fasada', label: 'Fasada', light: 'Toplota ostaje', bold: 'unutra.', text: 'Svaka naša zgrada ima fasadu sa termoizolacijom. Prozori su PVC, sa termoizolacionim staklom.' },
+{ layer: 'Zvuk', label: 'Zvuk', light: 'Između dva stana,', bold: 'tišina.', text: 'U Vrnjačkoj Banji zidove između stanova zidamo akustičnim blokom. U Jakšićevoj 14 podovi su plivajući, odvojeni od konstrukcije.' },
+{ layer: 'Pod', label: 'Pod', light: 'Parket tamo gde se', bold: 'živi.', text: 'Parket u sobama. Keramika u kupatilu i kuhinji.' },
+{ layer: 'Vreme', label: 'Vreme', light: 'Jedanaest i po', bold: 'meseci.', text: 'Toliko je trajalo od prvog dana radova do useljenja u Olimpijskoj 56V.' }
+];
+const takts = data.map((d, i) => {
+const n = i + 1;
+const active = n === step;
+return { ...d, isTime: n === 5, hidden: active ? 'false' : 'true', opacity: active ? 1 : 0, transform: n < step ? 'translateY(-20px)' : (active ? 'translateY(0)' : 'translateY(20px)'), size: n === 5 ? 'clamp(32px, 3.6vw, 56px)' : 'clamp(40px, 5vw, 80px)' };
+});
+const steps = ['Zid', 'Fasada', 'Zvuk', 'Pod', 'Vreme'].map((label, i) => ({
+label, sep: i < 4, current: step === i + 1 ? 'step' : 'false',
+color: step === i + 1 ? '#F4F2EE' : '#8A8F99',
+go: () => this.setState({ step: i + 1 })
+}));
+return {
+takts, steps,
+rootH: this.props.scrollStep != null ? '100vh' : '900px',
+l1: layer(1, 1), l2: layer(2, 1), l3: layer(3, 1), l4: layer(4, 1), l5: layer(5, 1.5),
+dim: step >= 5 ? 0.2 : 1,
+tlText: step >= 5 ? 1 : 0,
+bigOpacity: step >= 5 ? 1 : 0
+};
+}
+}
+</script>
+</body>
+</html>

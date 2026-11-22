@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<title>Nikmar Gradnja – Početna, sekcija Pronađite svoj stan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:1.5px solid #190C9C;outline-offset:3px}
+@media (max-width:768px){
+.nk6-root{padding:0 24px 96px !important}
+.nk6-grid{display:flex !important;flex-direction:column !important;gap:40px !important}
+.nk6-zones,.nk6-steps,.nk6-desk{display:none !important}
+.nk6-mob{display:block !important}
+.nk6-drawing{order:-1}
+}
+@media (prefers-reduced-motion: reduce){
+.nk6-floor{stroke-dashoffset:0 !important;transition:none !important}
+.nk6-row,.nk6-listwrap{transition:none !important;opacity:1 !important;transform:none !important}
+}
+</style>
+</helmet>
+<section class="nk6-root" aria-label="Pronađite svoj stan" style="background: #F4F2EE; color: #1C1D20; font-family: Manrope, sans-serif; padding: 0 80px 160px">
+<div aria-hidden="true" style="height: 1px; background: #8A8F99"></div>
+
+<div class="nk6-grid" style="margin-top: 160px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: start">
+<div style="grid-column: 1 / span 4; display: flex; flex-direction: column">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Pronađite svoj stan</span>
+<h2 style="margin: 24px 0 0; font-size: clamp(40px, 5vw, 80px); line-height: 1.05; font-weight: 200; letter-spacing: -0.02em">Zgrada. Sprat. <span style="font-weight: 600">Stan.</span></h2>
+<p style="margin: 32px 0 0; max-width: 36ch; font-size: 20px; line-height: 1.5">Izaberite zgradu, pa sprat. Za svaki stan vidite strukturu, kvadraturu, strane sveta i da li je dostupan.</p>
+<div role="group" aria-label="Zgrada" style="margin-top: 56px; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{buildings}}" as="b" hint-placeholder-count="2">
+<button type="button" onClick="{{b.pick}}" aria-pressed="{{b.pressed}}" style="min-height: 64px; padding: 14px 0; background: none; border: 0; border-bottom: 2px solid {{b.line}}; color: inherit; font: inherit; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 17px; font-weight: {{b.weight}}">{{b.name}}</span>
+<span style="font-size: 14px; color: #5E626B">{{b.count}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+
+<div class="nk6-drawing" style="grid-column: 6 / span 7; display: flex; flex-direction: column; gap: 24px">
+<div class="nk6-steps" style="display: flex; gap: 14px; font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase">
+<span style="color: {{s1}}">1 Zgrada</span><span aria-hidden="true" style="color: #8A8F99">·</span><span style="color: {{s2}}">2 Sprat</span><span aria-hidden="true" style="color: #8A8F99">·</span><span style="color: {{s3}}">3 Stan</span>
+</div>
+<div ref="{{setDraw}}" style="position: relative">
+<svg viewBox="0 0 640 400" width="100%" role="img" aria-label="Linijski crtež zgrade po spratovima, sa označenim dostupnim stanovima." fill="none" stroke="#1C1D20" stroke-width="1.5" style="display: block">
+<path class="nk6-floor" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: {{off}}; transition: stroke-dashoffset .3s linear 0s" d="M20 380H620 M100 380V300 M540 380V300 M100 300H540 M130 318H170V368H130Z M190 318H230V368H190Z M300 312H340V380H300Z M400 318H440V368H400Z M460 318H500V368H460Z"></path>
+<path class="nk6-floor" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: {{off}}; transition: stroke-dashoffset .3s linear .3s" d="M100 300V220 M540 300V220 M100 220H540 M130 236H170V288H130Z M380 236H420V288H380Z M460 236H500V288H460Z M220 300V308H330V300 M220 300V276H330V300 M240 236H310V276"></path>
+<path class="nk6-floor" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: {{off}}; transition: stroke-dashoffset .3s linear .6s" d="M100 220V140 M540 220V140 M100 140H540 M130 156H170V208H130Z M380 156H420V208H380Z M460 156H500V208H460Z M220 220V228H330V220 M220 220V196H330V220 M240 156H310V196"></path>
+<path class="nk6-floor" pathLength="1" style="stroke-dasharray: 1; stroke-dashoffset: {{off}}; transition: stroke-dashoffset .3s linear .9s" d="M150 140V80H490V140 M100 140V122H150 M490 122H540V140 M130 70H510V62H130Z M190 92H240V136H190Z M300 92H350V136H300Z M400 92H450V136H400Z M190 70V62 M250 70V62 M310 70V62 M370 70V62 M430 70V62"></path>
+</svg>
+<div class="nk6-zones" style="position: absolute; inset: 0">
+<sc-for list="{{floors}}" as="f" hint-placeholder-count="4">
+<button type="button" onClick="{{f.pick}}" onMouseEnter="{{f.enter}}" onMouseLeave="{{f.leave}}" onFocus="{{f.enter}}" onBlur="{{f.leave}}" aria-label="{{f.aria}}" aria-pressed="{{f.pressed}}" style="position: absolute; left: {{f.x}}; top: {{f.y}}; width: {{f.w}}; height: {{f.h}}; padding: 0; margin: 0; border: 1.5px solid {{f.border}}; background: {{f.bg}}; cursor: pointer; transition: background .25s ease, border-color .25s ease"></button>
+<span aria-hidden="true" style="position: absolute; left: calc(84.4% + 20px); top: {{f.labelY}}; transform: translateY(-50%); white-space: nowrap; font-size: 13px; font-weight: 500; color: {{f.labelColor}}; opacity: {{f.labelOp}}; transition: opacity .25s ease; pointer-events: none">{{f.label}}</span>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<div class="nk6-desk" style="margin-top: 72px">
+<sc-if value="{{hasFloor}}" hint-placeholder-val="{{ true }}">
+<div class="nk6-listwrap" style="display: grid; grid-template-rows: {{listRows}}; transition: grid-template-rows .4s cubic-bezier(0.65,0,0.35,1)">
+<div style="overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 16px">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">{{listTitle}}</span>
+</div>
+<sc-if value="{{soldOut}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 32px 0; border-top: 1px solid #D9D6CF">
+<p style="margin: 0; font-size: 18px; line-height: 1.5">Na ovom spratu su svi stanovi prodati. Pogledajte sprat iznad ili ispod.</p>
+<div style="display: flex; gap: 8px">
+<button type="button" onClick="{{floorUp}}" aria-label="Sprat iznad" style="width: 44px; height: 44px; border: 1px solid #1C1D20; background: none; color: inherit; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 13V1 M2 6L7 1L12 6"></path></svg></button>
+<button type="button" onClick="{{floorDown}}" aria-label="Sprat ispod" style="width: 44px; height: 44px; border: 1px solid #1C1D20; background: none; color: inherit; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 1V13 M2 8L7 13L12 8"></path></svg></button>
+</div>
+</div>
+</sc-if>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{units}}" as="u" hint-placeholder-count="6">
+<li class="nk6-row" style="border-top: 1px solid #D9D6CF; opacity: {{u.op}}; transform: {{u.tr}}; transition: opacity .35s ease {{u.delay}}, transform .35s ease {{u.delay}}">
+<a href="{{u.href}}" aria-disabled="{{u.disabled}}" style="display: grid; grid-template-columns: {{cols}}; column-gap: 24px; align-items: baseline; padding: 20px 0; opacity: {{u.dim}}; pointer-events: {{u.pe}}">
+<span style="font-size: 18px; font-weight: 600">{{u.label}}</span>
+<span style="font-size: 16px">{{u.struct}}</span>
+<sc-if value="{{showOrient}}" hint-placeholder-val="{{ true }}"><span style="font-size: 16px; color: #5E626B">{{u.orient}}</span></sc-if>
+<span style="display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; box-sizing: border-box; background: {{u.dotFill}}; border: 1.5px solid {{u.dotStroke}}"></span>{{u.status}}</span>
+<span style="font-size: 14px">{{u.price}}</span>
+<span style="font-size: 14px; font-weight: 500; color: {{u.linkColor}}; white-space: nowrap; justify-self: end">{{u.link}}</span>
+</a>
+</li>
+</sc-for>
+</ul>
+</div>
+</div>
+</sc-if>
+<div style="margin-top: 48px; display: flex; flex-wrap: wrap; gap: 40px; font-size: 15px; font-weight: 500">
+<a href="#" style="border-bottom: 1px solid currentColor; padding-bottom: 4px">Svi stanovi →</a>
+<a href="#" style="border-bottom: 1px solid currentColor; padding-bottom: 4px; color: #190C9C">Zakažite razgovor</a>
+</div>
+</div>
+
+<div class="nk6-mob" style="display: none; margin-top: 40px">
+<sc-for list="{{mobFloors}}" as="f" hint-placeholder-count="4">
+<div style="border-top: 1px solid #D9D6CF">
+<button type="button" onClick="{{f.pick}}" aria-expanded="{{f.pressed}}" style="width: 100%; min-height: 64px; padding: 16px 0; background: none; border: 0; color: inherit; font: inherit; display: flex; justify-content: space-between; align-items: center; cursor: pointer">
+<span style="font-size: 18px; font-weight: 600">{{f.name}}</span><span style="font-size: 14px; color: {{f.labelColor}}">{{f.countText}}</span>
+</button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}">
+<ul style="margin: 0 0 16px; padding: 0; list-style: none">
+<sc-for list="{{units}}" as="u" hint-placeholder-count="3">
+<li style="padding: 14px 0; border-top: 1px solid #ECE9E3; opacity: {{u.dim}}">
+<div style="font-size: 16px; font-weight: 600">{{u.label}} · <span style="font-weight: 500; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase">{{u.status}}</span></div>
+<div style="margin-top: 4px; font-size: 15px">{{u.mobLine}}</div>
+<div style="margin-top: 8px; display: flex; justify-content: space-between; font-size: 14px"><span>{{u.price}}</span><a href="{{u.href}}" style="font-weight: 500; color: {{u.linkColor}}">{{u.link}}</a></div>
+</li>
+</sc-for>
+</ul>
+</sc-if>
+</div>
+</sc-for>
+<div style="margin-top: 40px; display: flex; flex-direction: column; gap: 20px; font-size: 15px; font-weight: 500">
+<a href="#">Svi stanovi →</a>
+<a href="#" style="color: #190C9C">Zakažite razgovor</a>
+</div>
+</div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+componentDidMount() {
+let reduce = false;
+try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+if (reduce || typeof IntersectionObserver === 'undefined' || !this.drawEl) { this.setState({ drawn: true, rowsIn: true }); return; }
+this.io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { this.setState({ drawn: true }); this.io.disconnect(); } }, { threshold: 0.3 });
+this.io.observe(this.drawEl);
+this.setState({ rowsIn: true });
+}
+componentWillUnmount() { if (this.io) this.io.disconnect(); if (this.t) clearTimeout(this.t); }
+replay(patch) {
+this.setState({ ...patch, rowsIn: false, listOpen: false });
+if (this.t) clearTimeout(this.t);
+this.t = setTimeout(() => this.setState({ rowsIn: true, listOpen: true }), 30);
+}
+plural(n) {
+const a = n % 10, b = n % 100;
+if (a === 1 && b !== 11) return 'dostupan';
+if (a >= 2 && a <= 4 && !(b >= 12 && b <= 14)) return 'dostupna';
+return 'dostupnih';
+}
+noun(n) {
+const a = n % 10, b = n % 100;
+if (a === 1 && b !== 11) return 'stan';
+if (a >= 2 && a <= 4 && !(b >= 12 && b <= 14)) return 'stana';
+return 'stanova';
+}
+countText(n) { return n === 0 ? 'sve prodato' : n + ' ' + this.plural(n); }
+data() {
+if (this._data) return this._data;
+const structs = [['garsonjera', '20,67'], ['jednoiposoban', '35,06'], ['jednoiposoban', '37,43'], ['garsonjera', '22,15'], ['jednoiposoban', '39,38'], ['dvosoban', '43,32'], ['garsonjera', '23,31']];
+const orients = ['istok, jug', 'jug', 'jug, zapad', 'zapad', 'sever, zapad', 'sever', 'istok'];
+const order = [1, 3, 4, 0, 5, 2, 6];
+const floorDefs = [['Prizemlje', 6], ['I sprat', 7], ['II sprat', 7], ['Povučeni sprat', 6]];
+const make = (free, withOrient) => {
+let no = 1;
+return floorDefs.map(([name, count], fi) => {
+const avail = new Set(order.filter((i) => i < count).slice(0, free[fi]));
+const units = [];
+for (let i = 0; i < count; i++) {
+const [s, m] = structs[i];
+units.push({ no: no++, struct: s + ', ' + m + ' m²', orient: withOrient ? orients[i] : '', status: avail.has(i) ? 'available' : 'sold' });
+}
+return { name, units };
+});
+};
+this._data = [
+{ id: 'o2', name: 'Heroja sa Košara, Objekat 2', orient: true, floors: make([4, 3, 0, 2], true) },
+{ id: 'o1', name: 'Heroja sa Košara, Objekat 1', orient: false, floors: make([5, 6, 5, 4], false) }
+];
+return this._data;
+}
+renderVals() {
+this._sd = this._sd || ((el) => { this.drawEl = el; });
+const all = this.data();
+const bId = this.state.b ?? 'o2';
+const B = all.find((x) => x.id === bId);
+const fSel = this.state.f === undefined ? 1 : this.state.f;
+const hov = this.state.hov;
+const freeOf = (fl) => fl.units.filter((u) => u.status === 'available').length;
+const zones = [
+{ x: '15.6%', y: '75%', w: '68.8%', h: '20%', labelY: '85%' },
+{ x: '15.6%', y: '55%', w: '68.8%', h: '20%', labelY: '65%' },
+{ x: '15.6%', y: '35%', w: '68.8%', h: '20%', labelY: '45%' },
+{ x: '23.4%', y: '20%', w: '53.2%', h: '15%', labelY: '27.5%' }
+];
+const hatch = 'repeating-linear-gradient(45deg, rgba(138,143,153,0.55) 0 1px, transparent 1px 8px)';
+const floors = B.floors.map((fl, i) => {
+const n = freeOf(fl), sold = n === 0, sel = fSel === i, on = sel || hov === i;
+return {
+...zones[i],
+pick: () => this.replay({ f: i }),
+enter: () => this.setState({ hov: i }),
+leave: () => this.setState({ hov: null }),
+aria: fl.name + ', ' + (sold ? 'sve prodato' : n + ' ' + this.plural(n) + ' ' + this.noun(n)),
+pressed: sel ? 'true' : 'false',
+border: on ? (sold ? '#8A8F99' : '#190C9C') : 'transparent',
+bg: sold ? hatch : (on ? 'rgba(25,12,156,0.1)' : 'transparent'),
+label: fl.name + ' · ' + this.countText(n),
+labelColor: sold ? '#5E626B' : (sel ? '#190C9C' : '#1C1D20'),
+labelOp: on || sold ? 1 : 0
+};
+});
+const fl = fSel != null ? B.floors[fSel] : null;
+const rowsIn = !!this.state.rowsIn;
+const sorted = fl ? [...fl.units].sort((a, b) => (a.status === b.status ? a.no - b.no : (a.status === 'available' ? -1 : 1))) : [];
+const units = sorted.map((u, i) => {
+const av = u.status === 'available';
+const label = 'Stan ' + String(u.no).padStart(2, '0');
+return {
+label, struct: u.struct, orient: u.orient,
+mobLine: u.struct + (u.orient ? ' · ' + u.orient : ''),
+status: av ? 'Dostupan' : 'Prodat',
+dotFill: av ? '#190C9C' : '#8A8F99', dotStroke: av ? '#190C9C' : '#8A8F99',
+price: av ? 'Cena na upit' : '', link: av ? 'Pogledajte stan ↗' : '',
+linkColor: '#190C9C',
+href: av ? '#' : undefined, disabled: av ? 'false' : 'true',
+dim: av ? 1 : 0.4, pe: av ? 'auto' : 'none',
+op: rowsIn ? 1 : 0, tr: rowsIn ? 'translateY(0)' : 'translateY(8px)', delay: (i * 0.04).toFixed(2) + 's'
+};
+});
+const soldOut = !!fl && freeOf(fl) === 0;
+const step = fSel != null ? 3 : 2;
+return {
+setDraw: this._sd,
+off: this.state.drawn ? 0 : 1,
+buildings: all.map((x) => {
+const n = x.floors.reduce((s, f) => s + freeOf(f), 0);
+const sel = x.id === bId;
+return { name: x.name, count: this.countText(n), pressed: sel ? 'true' : 'false', line: sel ? '#190C9C' : '#D9D6CF', weight: sel ? 600 : 400, pick: () => this.replay({ b: x.id, f: 1 }) };
+}),
+floors,
+mobFloors: [...B.floors].map((f, i) => ({ f, i })).reverse().map(({ f, i }) => ({
+name: f.name, countText: this.countText(freeOf(f)), labelColor: freeOf(f) ? '#1C1D20' : '#5E626B',
+open: fSel === i, pressed: fSel === i ? 'true' : 'false',
+pick: () => this.replay({ f: fSel === i ? null : i })
+})),
+s1: '#8A8F99', s2: step === 2 ? '#1C1D20' : '#8A8F99', s3: step === 3 ? '#1C1D20' : '#8A8F99',
+hasFloor: !!fl,
+listRows: this.state.listOpen === false ? '0fr' : '1fr',
+listTitle: fl ? B.name + ' · ' + fl.name : '',
+soldOut,
+units: soldOut ? [] : units,
+showOrient: B.orient,
+cols: B.orient ? '120px minmax(0, 1.4fr) minmax(0, 1fr) 150px 140px minmax(150px, auto)' : '120px minmax(0, 2.4fr) 150px 140px minmax(150px, auto)',
+floorUp: () => this.replay({ f: Math.min(3, (fSel ?? 0) + 1) }),
+floorDown: () => this.replay({ f: Math.max(0, (fSel ?? 0) - 1) })
+};
+}
+}
+</script>
+</body>
+</html>

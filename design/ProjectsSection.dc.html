@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<title>Nikmar Gradnja – Početna, sekcija Projekti</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}a:hover{color:#190C9C}
+a:focus-visible{outline:1px solid #190C9C;outline-offset:4px}
+.nk-ul{position:relative}
+.nk-ul::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform .5s cubic-bezier(0.16,1,0.3,1)}
+.nk-ul:hover::after,.nk-panel:hover .nk-ul::after{transform:scaleX(1)}
+.nk-img{transition:transform 1.2s cubic-bezier(0.16,1,0.3,1)}
+.nk-panel:hover .nk-img{transform:scale(1.03)}
+.nk-panel:hover .nk-ul{color:#190C9C}
+.nk-track{scrollbar-width:none}
+.nk-track::-webkit-scrollbar{display:none}
+@media (max-width:768px){
+.nk-track{flex-direction:column !important;overflow:visible !important;padding:0 24px 64px !important;gap:56px !important}
+.nk-intro,.nk-panel{flex:none !important;width:100% !important}
+.nk-media{height:280px !important}
+.nk-root{padding-top:64px !important}
+}
+@media (prefers-reduced-motion: reduce){.nk-img,.nk-ul::after{transition:none}}
+</style>
+</helmet>
+<section class="nk-root" aria-label="Projekti" style="background: #F4F2EE; color: #1C1D20; font-family: Manrope, sans-serif; padding: 96px 0 0">
+<div class="nk-track" style="display: flex; gap: 80px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 80px 96px; align-items: flex-start">
+
+<div class="nk-intro" style="flex: 0 0 420px; display: flex; flex-direction: column; gap: 28px; padding-top: 8px; scroll-snap-align: start">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Projekti</span>
+<h2 style="margin: 0; font-size: clamp(48px, 5vw, 72px); line-height: 1.05; font-weight: 200; letter-spacing: -0.02em">Pet adresa. <span style="font-weight: 600">Dva grada.</span></h2>
+<p style="margin: 0; max-width: 32ch; font-size: 18px; line-height: 1.6; color: rgba(28,29,32,0.8)">Tri završena objekta, jedan u izgradnji i jedan u drugoj fazi. Kruševac i Vrnjačka Banja.</p>
+<a class="nk-ul" href="#" style="align-self: flex-start; margin-top: 12px; font-size: 15px; font-weight: 500">Svi projekti →</a>
+</div>
+
+<sc-for list="{{projects}}" as="p" hint-placeholder-count="5">
+<article class="nk-panel" style="flex: 0 0 min(880px, 80vw); display: flex; flex-direction: column; gap: 32px; scroll-snap-align: start">
+<a href="#" aria-label="{{p.aria}}" class="nk-media" style="position: relative; display: block; height: 560px; background: {{p.stage}}; overflow: hidden">
+<sc-if value="{{p.hasImage}}" hint-placeholder-val="{{ true }}">
+<img class="nk-img" src="{{p.src}}" alt="{{p.alt}}" style="position: absolute; left: {{p.inset}}; top: {{p.top}}; width: {{p.w}}; height: {{p.h}}; object-fit: {{p.fit}}; object-position: {{p.pos}}; display: block">
+</sc-if>
+<sc-if value="{{p.placeholder}}" hint-placeholder-val="{{ false }}">
+<span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">[ Vizuelizacija Objekta 1 ]</span>
+</sc-if>
+<sc-if value="{{p.isRender}}" hint-placeholder-val="{{ false }}">
+<span style="position: absolute; top: 20px; right: 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #F4F2EE">Vizuelizacija</span>
+</sc-if>
+</a>
+<div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; column-gap: 24px; align-items: start">
+<span style="font-size: 56px; line-height: 0.9; font-weight: 200; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">{{p.n}}</span>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">{{p.meta}}</span>
+<h3 style="margin: 0; font-size: 32px; line-height: 1.1; font-weight: 300; letter-spacing: -0.01em">{{p.light}} <span style="font-weight: 600">{{p.bold}}</span></h3>
+<span style="font-size: 16px; line-height: 1.5; color: rgba(28,29,32,0.8)">{{p.units}}</span>
+</div>
+<span class="nk-ul" style="margin-top: 6px; font-size: 15px; font-weight: 500; white-space: nowrap">Istražite ↗</span>
+</div>
+</article>
+</sc-for>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+const cover = { stage: '#1C1D20', inset: '0', top: '0', w: '100%', h: '100%', fit: 'cover' };
+const cut = { stage: '#1C1D20', inset: '5%', top: '12%', w: '90%', h: '88%', fit: 'contain', pos: 'center bottom' };
+const list = [
+{ n: '01', light: 'Olimpijska', bold: '56V', meta: 'Vrnjačka Banja · Završeno', units: '16 stanova', src: '/images/zgrada-jesen-foto.webp', alt: 'Završena stambena zgrada sa terasama i pergolom na vrhu, jesenje svetlo', ...cover, pos: 'center 40%', isRender: false },
+{ n: '02', light: 'Jakšićeva', bold: '14', meta: 'Kruševac · Završeno', units: '14 stanova · 3 lokala', src: '/images/fasada-lokali-cutout.webp', alt: 'Fasada stambeno-poslovne zgrade sa lokalima u prizemlju', ...cut, isRender: false },
+{ n: '03', light: 'Nikole Tesle', bold: '12', meta: 'Kruševac · Završeno', units: '21 stan · 3 lokala', src: '/images/zgrada-sumrak-render.webp', alt: 'Vizuelizacija stambeno-poslovne zgrade u sumrak', ...cover, pos: 'center 72%', isRender: true },
+{ n: '04', light: 'Heroja sa Košara,', bold: 'Objekat 2', meta: 'Vrnjačka Banja · U izgradnji', units: '26 stanova', src: '/images/heroja-sa-kosara-objekat-2-render.webp', alt: 'Vizuelizacija stambene zgrade u ulici Heroja sa Košara u Vrnjačkoj Banji', ...cut, isRender: true },
+{ n: '05', light: 'Heroja sa Košara,', bold: 'Objekat 1', meta: 'Vrnjačka Banja · Druga faza', units: '26 stanova', src: '', alt: '', ...cut, stage: '#E6E3DC', isRender: false }
+];
+return {
+projects: list.map((p) => ({ ...p, hasImage: !!p.src, placeholder: !p.src, aria: p.light + ' ' + p.bold + ', ' + p.meta }))
+};
+}
+}
+</script>
+</body>
+</html>

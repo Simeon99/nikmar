@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<title>Nikmar Gradnja – Početna, kraj strane i podnožje</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:1.5px solid #AFB6D0;outline-offset:4px}
+.nk7-val{position:relative;display:inline-block}
+.nk7-val::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform .5s cubic-bezier(0.16,1,0.3,1)}
+a.nk7-val:hover::after{transform:scaleX(1)}
+.nk7-nav a:hover{color:#AFB6D0}
+.nk7-cta:hover{background:#190C9C !important;border-color:#190C9C !important;color:#F4F2EE !important}
+.nk7-mob{display:none !important}
+@media (max-width:768px){
+.nk7-root{padding:96px 24px 40px !important}
+.nk7-h1{font-size:clamp(44px,12vw,52px) !important}
+.nk7-t1{grid-column:1 / -1 !important}
+.nk7-desk{display:none !important}
+.nk7-mob{display:flex !important}
+.nk7-foot{grid-template-columns:minmax(0,1fr) !important;row-gap:40px !important}
+.nk7-bottom{flex-direction:column !important;gap:12px !important}
+}
+@media (prefers-reduced-motion: reduce){
+.nk7-word{transform:none !important;transition:none !important}
+.nk7-line{transform:none !important;transition:none !important}
+.nk7-val::after{transition:none}
+}
+</style>
+</helmet>
+<section class="nk7-root" ref="{{setRoot}}" aria-label="Razgovor i podnožje" style="background: {{bg}}; color: #F4F2EE; font-family: Manrope, sans-serif; padding: 160px 80px 48px">
+
+<div ref="{{setT1}}" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px">
+<div class="nk7-t1" style="grid-column: 1 / span 8">
+<span style="display: block; font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Razgovor</span>
+<h2 class="nk7-h1" aria-label="Razgovor počinje na gradilištu." style="margin: 24px 0 0; font-size: clamp(56px, 7.2vw, 120px); line-height: 1.05; font-weight: 200; letter-spacing: -0.02em; display: flex; flex-wrap: wrap; column-gap: 0.25em">
+<sc-for list="{{words}}" as="w" hint-placeholder-count="4">
+<span aria-hidden="true" style="display: inline-block; overflow: hidden; padding-bottom: 0.08em"><span class="nk7-word" style="display: inline-block; font-weight: {{w.weight}}; transform: {{w.tr}}; transition: transform .9s cubic-bezier(0.16,1,0.3,1) {{w.delay}}">{{w.text}}</span></span>
+</sc-for>
+</h2>
+<p style="margin: 40px 0 0; max-width: 40ch; font-size: 20px; line-height: 1.5; color: rgba(244,242,238,0.8)">Nemamo klasičnu kancelariju. Na gradilištu je uređen prostor gde sednemo, pogledamo osnove i odgovorimo na pitanja.</p>
+</div>
+</div>
+
+<div ref="{{setT2}}" style="margin-top: 160px; max-width: 640px; display: flex; flex-direction: column">
+<h3 style="margin: 0; font-size: 44px; line-height: 1.1; font-weight: 300; letter-spacing: -0.01em">Javite se <span style="font-weight: 600">Nikoli.</span></h3>
+<div class="nk7-line" aria-hidden="true" style="margin-top: 24px; height: 2px; background: #F4F2EE; transform-origin: left center; transform: {{lineTr}}; transition: transform .8s cubic-bezier(0.65,0,0.35,1)"></div>
+<dl style="margin: 48px 0 0; display: flex; flex-direction: column; gap: 28px">
+<div><dt style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Vlasnik</dt><dd style="margin: 8px 0 0; font-size: 28px; font-weight: 300"><span class="nk7-val">Nikola Tomić</span></dd></div>
+<div><dt style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Telefon</dt><dd style="margin: 8px 0 0; font-size: 28px; font-weight: 300"><a class="nk7-val" href="tel:+381654184446">065/4184 446</a></dd></div>
+<div><dt style="font-size: 12px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #8A8F99">Mejl</dt><dd style="margin: 8px 0 0; font-size: 28px; font-weight: 300; overflow-wrap: anywhere"><a class="nk7-val" href="mailto:nikmargradnja037@gmail.com">nikmargradnja037@gmail.com</a></dd></div>
+</dl>
+<a class="nk7-cta nk7-desk" href="#" style="align-self: flex-start; margin-top: 48px; height: 52px; padding: 0 28px; display: inline-flex; align-items: center; background: #F4F2EE; color: #1C1D20; border: 1px solid #F4F2EE; border-radius: 2px; font-size: 15px; font-weight: 500; transition: background .3s ease, color .3s ease, border-color .3s ease">Zakažite razgovor</a>
+<div class="nk7-mob" style="margin-top: 40px; flex-direction: column; gap: 12px">
+<a class="nk7-cta" href="tel:+381654184446" style="height: 52px; display: flex; align-items: center; justify-content: center; background: #F4F2EE; color: #1C1D20; border: 1px solid #F4F2EE; border-radius: 2px; font-size: 15px; font-weight: 500">Pozovite</a>
+<a href="#" style="height: 52px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(244,242,238,0.7); border-radius: 2px; font-size: 15px; font-weight: 500">Zakažite razgovor</a>
+</div>
+</div>
+
+<footer style="margin-top: 200px">
+<div class="nk7-foot" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; align-items: start">
+<a href="#" aria-label="Nikmar gradnja, početna" style="display: block; justify-self: start">
+<img src="/logo/nikmar-logo-belo.png" alt="" style="height: 104px; width: auto; display: block">
+</a>
+<nav class="nk7-nav" aria-label="Podnožje" style="display: flex; flex-direction: column; gap: 12px; font-size: 15px">
+<a href="#">Projekti</a><a href="#">Stanovi</a><a href="#">O nama</a><a href="#">Kontakt</a>
+</nav>
+<address style="font-style: normal; display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 1.5; color: #8A8F99">
+<span>Nikmar gradnja 037 Kruševac</span>
+<span>Rankeova 3, Kruševac</span>
+<span>[PODATAK: MB i PIB]</span>
+</address>
+</div>
+<div class="nk7-bottom" style="margin-top: 96px; display: flex; justify-content: space-between; font-size: 13px; color: #8A8F99">
+<span>© 2026 Nikmar gradnja</span>
+</div>
+</footer>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1620}}'>
+class Component extends DCLogic {
+componentDidMount() {
+let reduce = false;
+try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+this.reduce = reduce;
+if (reduce || typeof IntersectionObserver === 'undefined' || !this.t1 || !this.t2 || !this.root) { this.setState({ in1: true, in2: true, prog: 1 }); return; }
+this.io = new IntersectionObserver((es) => {
+es.forEach((e) => {
+if (!e.isIntersecting) return;
+if (e.target === this.t1) this.setState({ in1: true });
+if (e.target === this.t2) this.setState({ in2: true });
+});
+}, { threshold: 0.35 });
+this.io.observe(this.t1); this.io.observe(this.t2);
+let sp = this.root.parentElement;
+while (sp && sp !== document.body) {
+const oy = getComputedStyle(sp).overflowY;
+if ((oy === 'auto' || oy === 'scroll') && sp.scrollHeight > sp.clientHeight) break;
+sp = sp.parentElement;
+}
+this.scroller = sp && sp !== document.body ? sp : window;
+this.onScroll = () => { if (this.raf) return; this.raf = requestAnimationFrame(() => { this.raf = null; this.measure(); }); };
+this.scroller.addEventListener('scroll', this.onScroll, { passive: true });
+window.addEventListener('resize', this.onScroll);
+this.measure();
+}
+componentWillUnmount() {
+if (this.io) this.io.disconnect();
+if (this.scroller) this.scroller.removeEventListener('scroll', this.onScroll);
+window.removeEventListener('resize', this.onScroll);
+}
+measure() {
+const win = this.scroller === window;
+const vh = win ? window.innerHeight : this.scroller.clientHeight;
+const top0 = win ? 0 : this.scroller.getBoundingClientRect().top;
+const scrollable = win ? document.documentElement.scrollHeight > window.innerHeight + 2 : true;
+const y = this.root.getBoundingClientRect().top - top0;
+const prog = scrollable ? Math.max(0, Math.min(1, (vh - y) / (vh * 0.5))) : 1;
+if (Math.abs((this.state.prog ?? -1) - prog) > 0.002) this.setState({ prog });
+}
+renderVals() {
+this._r = this._r || ((el) => { this.root = el; });
+this._a = this._a || ((el) => { this.t1 = el; });
+this._b = this._b || ((el) => { this.t2 = el; });
+let p = this.state.prog ?? 1;
+if (this.reduce) p = p > 0.5 ? 1 : 0;
+const mix = (a, b) => Math.round(a + (b - a) * p);
+const in1 = !!this.state.in1, in2 = !!this.state.in2;
+const words = ['Razgovor', 'počinje', 'na', 'gradilištu.'].map((text, i) => ({
+text, weight: i === 3 ? 600 : 200,
+tr: in1 ? 'translateY(0)' : 'translateY(110%)',
+delay: (i * 0.12).toFixed(2) + 's'
+}));
+return {
+setRoot: this._r, setT1: this._a, setT2: this._b,
+bg: 'rgb(' + mix(244, 28) + ',' + mix(242, 29) + ',' + mix(238, 32) + ')',
+words,
+lineTr: in2 ? 'scaleX(1)' : 'scaleX(0)'
+};
+}
+}
+</script>
+</body>
+</html>

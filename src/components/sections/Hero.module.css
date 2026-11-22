@@ -1,0 +1,47 @@
+/* Mobilni: okvir se otkriva maskom iz centra (HomeHero, .nk-mask) */
+.frame {
+  animation: heroMask 0.9s var(--ease-mask) 0.2s both;
+}
+
+@keyframes heroMask {
+  from { clip-path: inset(50% 50% 50% 50%); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@media (min-width: 769px) {
+  /* Desktop: okvir je slika preko celog ekrana, sečena na početni okvir
+     (top 347px, left početak 5. kolone, right 80px, bottom 0).
+     Pre hidratacije je skupljen u centar okvira; GSAP ga otvara i dalje vodi. */
+  .frame {
+    animation: none;
+    clip-path: inset(
+      calc(347px + (100% - 347px) / 2)
+      calc(80px + (100% - ((100% - 424px) / 3 + 176px) - 80px) / 2)
+      calc((100% - 347px) / 2)
+      calc(((100% - 424px) / 3 + 176px) + (100% - ((100% - 424px) / 3 + 176px) - 80px) / 2)
+    );
+  }
+
+  /* Kartica je skrivena dok je skrol ne uvede */
+  .card {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame {
+    animation: heroFade 0.6s ease both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 769px) {
+  .frame {
+    animation: none;
+  }
+}
+
+@keyframes heroFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

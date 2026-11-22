@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<title>Nikmar Gradnja – Hero, prototip skrola</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}a:hover{color:#190C9C}
+a:focus-visible,button:focus-visible{outline:1px solid #190C9C;outline-offset:4px}
+.nk-ul{position:relative}
+.nk-ul::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform .5s cubic-bezier(0.16,1,0.3,1)}
+.nk-ul:hover::after{transform:scaleX(1)}
+.nk-card a:hover{color:#AFB6D0}
+.nk-step:hover{color:#AFB6D0 !important}
+@keyframes nk5Pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.2);opacity:0}}
+.nk5-ring{animation:nk5Pulse 2s ease-out infinite}
+.nk5-mob{display:none}
+.nk5-cta:hover{background:#1C1D20 !important;border-color:#1C1D20 !important}
+.nk7-val{position:relative;display:inline-block}
+.nk7-val::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform .5s cubic-bezier(0.16,1,0.3,1)}
+a.nk7-val:hover::after{transform:scaleX(1)}
+.nk7-nav a:hover{color:#AFB6D0}
+.nk7-cta:hover{background:#190C9C !important;border-color:#190C9C !important;color:#F4F2EE !important}
+.nk7-mob{display:none !important}
+@media (prefers-reduced-motion: reduce){.nk5-ring{animation:none}.nk5-mask{clip-path:none !important}.nk5-svg{stroke-dashoffset:0 !important;transition:none !important}.nk5-place{transform:none !important}}
+.nk-mob{display:none}
+@media (prefers-reduced-motion: reduce){.nk-l14{stroke-dashoffset:0 !important;stroke:#F4F2EE !important;transition:none !important}.nk-l5{transition:opacity .4s ease !important;stroke-dashoffset:0 !important}.nk-takt{transform:none !important}}
+.nk-panel:hover .nk-ul{color:#190C9C}
+.nk-panel:hover .nk-ul::after{transform:scaleX(1)}
+.nk-fade{transition:color .45s ease}
+.nk-cta:hover{background:#1C1D20 !important;border-color:#1C1D20 !important;color:#F4F2EE !important}
+@keyframes nkMask{from{clip-path:inset(50% 50% 50% 50%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes nkRise{from{transform:translateY(105%)}to{transform:translateY(0)}}
+@keyframes nkFade{from{opacity:0}to{opacity:1}}
+.nk-mask{animation:nkMask .9s cubic-bezier(0.65,0,0.35,1) .2s both}
+.nk-line{display:block;overflow:hidden;padding-bottom:0.06em}
+.nk-line > span{display:inline-block;animation:nkRise .9s cubic-bezier(0.16,1,0.3,1) both}
+@media (max-width:1000px){.nk-links{display:none !important}}
+@media (prefers-reduced-motion: reduce){.nk-mask,.nk-line > span{animation:nkFade .6s ease both}.nk-ul::after{transition:none}}
+</style>
+</helmet>
+<div onScroll="{{onScroll}}" style="height: 100vh; min-height: 600px; overflow-y: auto; background: #F4F2EE; font-family: Manrope, sans-serif; color: #1C1D20">
+<div style="height: calc(100vh + 1900px); position: relative">
+<div style="position: sticky; top: 0; height: 100vh; min-height: 600px; overflow: hidden; background: #F4F2EE">
+
+<section aria-label="Uvod" style="position: absolute; top: 76px; left: 0; right: 0; padding: 64px 80px 0; transform: {{textTransform}}">
+<span style="display: block; font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Kruševac · Vrnjačka Banja</span>
+<h1 style="margin: 24px 0 0; font-size: clamp(56px, 8vw, 128px); line-height: 1.05; font-weight: 200; letter-spacing: -0.02em"><span class="nk-line"><span>Prostor za <span style="font-weight: 600">život.</span></span></span></h1>
+<div style="margin-top: 36px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px">
+<div style="grid-column: 1 / span 4; display: flex; flex-direction: column; gap: 40px">
+<p style="margin: 0; max-width: 36ch; font-size: 20px; line-height: 1.5; color: rgba(28,29,32,0.8)">Gradimo stambene zgrade u Kruševcu i Vrnjačkoj Banji. Pet adresa do sada.</p>
+<a class="nk-ul" href="#" style="align-self: flex-start; font-size: 15px; font-weight: 500">Zakažite razgovor →</a>
+</div>
+</div>
+</section>
+
+<figure class="nk-mask" style="position: absolute; margin: 0; top: {{frameTop}}; left: {{frameLeft}}; right: {{frameRight}}; bottom: 0; background: #1C1D20; overflow: hidden; z-index: 1">
+<img src="/images/heroja-sa-kosara-objekat-2-render.webp" alt="Vizuelizacija stambene zgrade u ulici Heroja sa Košara u Vrnjačkoj Banji, prizemlje, dva sprata i povučeni sprat." style="position: absolute; left: 4%; top: 12%; width: 92%; height: 88%; object-fit: contain; object-position: center bottom; transform: {{imgTransform}}; transform-origin: center bottom; display: block">
+<div aria-hidden="true" style="position: absolute; inset: 0; opacity: {{overlayOpacity}}; background: linear-gradient(0deg, rgba(28,29,32,0.75) 0%, rgba(28,29,32,0) 55%), linear-gradient(90deg, rgba(28,29,32,0.55) 0%, rgba(28,29,32,0) 55%), rgba(28,29,32,0.3)"></div>
+<figcaption style="position: absolute; top: {{tagTop}}; right: {{tagRight}}; font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #F4F2EE">Vizuelizacija</figcaption>
+</figure>
+
+<section class="nk-card" aria-label="Izdvojeni projekat: Heroja sa Košara, Objekat 2" style="position: absolute; left: 80px; bottom: 80px; max-width: 440px; z-index: 2; color: #F4F2EE; display: flex; flex-direction: column; gap: 14px; opacity: {{cardOpacity}}; transform: {{cardTransform}}; pointer-events: {{cardPointer}}">
+<span aria-hidden="true" style="width: 48px; height: 1px; background: #F4F2EE"></span>
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase">U izgradnji · Vrnjačka Banja</span>
+<h2 style="margin: 0; font-size: 40px; line-height: 1.1; font-weight: 300; letter-spacing: -0.01em">Heroja sa <span style="font-weight: 600">Košara</span></h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(244,242,238,0.88)">Objekat 2. Pod krovom je, prozori su postavljeni. Sada se rade struja i voda.</p>
+<a class="nk-ul" href="#" style="align-self: flex-start; margin-top: 10px; font-size: 15px; font-weight: 500">Istražite projekat ↗</a>
+</section>
+
+<header style="position: absolute; top: 0; left: 0; right: 0; z-index: 3; background: {{headerBg}}; transition: background .45s ease">
+<nav aria-label="Glavna navigacija" style="height: 76px; padding: 0 80px; display: flex; align-items: center; justify-content: space-between; gap: 32px">
+<a href="#" aria-label="Nikmar gradnja, početna" style="position: relative; display: block; height: 56px; width: 61px"><img src="/logo/nikmar-logo-crno.png" alt="" style="position: absolute; left: 0; top: 0; height: 56px; width: auto; opacity: {{logoDark}}; transition: opacity .45s ease"><img src="/logo/nikmar-logo-belo.png" alt="" style="position: absolute; left: 0; top: 0; height: 56px; width: auto; opacity: {{logoLight}}; transition: opacity .45s ease"></a>
+<div style="display: flex; align-items: center; gap: 40px">
+<div class="nk-links nk-fade" style="display: flex; align-items: center; gap: 40px; font-size: 15px; color: {{headerFg}}">
+<a class="nk-ul" href="#">Projekti</a><a class="nk-ul" href="#">Stanovi</a><a class="nk-ul" href="#">O nama</a><a class="nk-ul" href="#">Kontakt</a>
+</div>
+<a class="nk-cta" href="#" style="height: 44px; padding: 0 24px; background: #190C9C; color: #F4F2EE; border: 1px solid #190C9C; border-radius: 2px; display: flex; align-items: center; font-size: 15px; font-weight: 500; white-space: nowrap; transition: background .3s ease, border-color .3s ease">Zakažite razgovor</a>
+</div>
+</nav>
+</header>
+
+</div>
+</div>
+<section aria-label="Projekti" style="position: relative; height: {{s2Height}}; background: #F4F2EE">
+<div style="position: sticky; top: 0; height: 100vh; min-height: 600px; overflow: hidden; display: flex; align-items: center">
+<div style="display: flex; gap: 80px; padding: 0 80px; align-items: flex-start; transform: {{trackTransform}}; will-change: transform">
+
+<div style="flex: 0 0 420px; display: flex; flex-direction: column; gap: 28px; padding-top: 8px">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">Projekti</span>
+<h2 style="margin: 0; font-size: clamp(48px, 5vw, 72px); line-height: 1.05; font-weight: 200; letter-spacing: -0.02em">Pet adresa. <span style="font-weight: 600">Dva grada.</span></h2>
+<p style="margin: 0; max-width: 32ch; font-size: 18px; line-height: 1.6; color: rgba(28,29,32,0.8)">Tri završena objekta, jedan u izgradnji i jedan u drugoj fazi. Kruševac i Vrnjačka Banja.</p>
+<a class="nk-ul" href="#" style="align-self: flex-start; margin-top: 12px; font-size: 15px; font-weight: 500">Svi projekti →</a>
+</div>
+
+<sc-for list="{{projects}}" as="p" hint-placeholder-count="5">
+<article class="nk-panel" style="flex: 0 0 880px; display: flex; flex-direction: column; gap: 28px">
+<a href="#" aria-label="{{p.aria}}" style="position: relative; display: block; height: calc(100vh - 330px); min-height: 320px; background: {{p.stage}}; overflow: hidden">
+<sc-if value="{{p.hasImage}}" hint-placeholder-val="{{ true }}">
+<img class="nk-img" src="{{p.src}}" alt="{{p.alt}}" style="position: absolute; left: {{p.inset}}; top: {{p.top}}; width: {{p.w}}; height: {{p.h}}; object-fit: {{p.fit}}; object-position: {{p.pos}}; transform: {{p.shift}}; display: block">
+</sc-if>
+<sc-if value="{{p.placeholder}}" hint-placeholder-val="{{ false }}">
+<span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">[ Vizuelizacija Objekta 1 ]</span>
+</sc-if>
+<sc-if value="{{p.isRender}}" hint-placeholder-val="{{ false }}">
+<span style="position: absolute; top: 20px; right: 20px; font-size: 11px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #F4F2EE">Vizuelizacija</span>
+</sc-if>
+</a>
+<div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; column-gap: 24px; align-items: start">
+<span style="font-size: 56px; line-height: 0.9; font-weight: 200; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">{{p.n}}</span>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">{{p.meta}}</span>
+<h3 style="margin: 0; font-size: 32px; line-height: 1.1; font-weight: 300; letter-spacing: -0.01em">{{p.light}} <span style="font-weight: 600">{{p.bold}}</span></h3>
+<span style="font-size: 16px; line-height: 1.5; color: rgba(28,29,32,0.8)">{{p.units}}</span>
+</div>
+<span class="nk-ul" style="margin-top: 6px; font-size: 15px; font-weight: 500; white-space: nowrap">Istražite ↗</span>
+</div>
+</article>
+</sc-for>
+
+</div>
+</div>
+</section>
+<section aria-label="Sekcija 3" style="height: {{s3Height}}; box-sizing: border-box; padding: 120px 80px; background: #F4F2EE">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: #5E626B">[ Sekcija 3 ]</span>
+</section>
+<section aria-label="Kako gradimo, skrol" style="position: relative; height: {{s4Height}}; background: #1C1D20">
+<div style="position: sticky; top: 0; height: 100vh; min-height: 640px; overflow: hidden">
+<dc-import name="HowWeBuild" scroll-step="{{s4Step}}" hint-size="100%,100vh"></dc-import>
+</div>
+</section>
+<dc-import name="UnderConstruction" pin="{{ true }}" hint-size="100%,3600px"></dc-import>
+<dc-import name="FindApartment" hint-size="100%,1500px"></dc-import>
+<dc-import name="ClosingFooter" hint-size="100%,1620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+componentDidMount() {
+try { this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { this.reduce = false; }
+}
+renderVals() {
+const t = this.state.t ?? 0;
+const clamp = (v) => Math.max(0, Math.min(1, v));
+let p = clamp(t / 900);
+if (this.reduce) p = p > 0.5 ? 1 : 0;
+const e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+const k = 1 - e;
+const lerp = (a, b) => a + (b - a) * e;
+const cardIn = clamp((p - 0.6) / 0.4);
+const cardOut = clamp(1 - (t - 1100) / 400);
+const card = this.reduce ? (p >= 1 && t < 1300 ? 1 : 0) : Math.min(cardIn, cardOut);
+const dark = e > 0.85;
+const w = this.state.w ?? 1440;
+const h = Math.max(600, this.state.h ?? 900);
+const panelW = 880, gap = 80, introW = 420, pad = 80;
+const trackW = pad + introW + gap + 5 * panelW + 4 * gap + pad;
+const D = Math.max(0, trackW - w);
+const p2 = D ? clamp((t - (h + 1900)) / D) : 0;
+const x = p2 * D;
+const s3 = Math.round(0.6 * h);
+const s4Start = (h + 1900) + (h + D) + s3;
+const rel = t - s4Start;
+const s4Step = rel < -0.3 * h ? 0 : (rel >= 3.5 * h ? 6 : Math.min(5, Math.floor(Math.max(0, rel) / (0.7 * h)) + 1));
+const cover = { stage: '#1C1D20', inset: '-6%', top: '0', w: '112%', h: '100%', fit: 'cover' };
+const cut = { stage: '#1C1D20', inset: '5%', top: '12%', w: '90%', h: '88%', fit: 'contain', pos: 'center bottom' };
+const list = [
+{ n: '01', light: 'Olimpijska', bold: '56V', meta: 'Vrnjačka Banja · Završeno', units: '16 stanova', src: '/images/zgrada-jesen-foto.webp', alt: 'Završena stambena zgrada sa terasama i pergolom na vrhu, jesenje svetlo', ...cover, pos: 'center 40%', isRender: false },
+{ n: '02', light: 'Jakšićeva', bold: '14', meta: 'Kruševac · Završeno', units: '14 stanova · 3 lokala', src: '/images/fasada-lokali-cutout.webp', alt: 'Fasada stambeno-poslovne zgrade sa lokalima u prizemlju', ...cut, isRender: false },
+{ n: '03', light: 'Nikole Tesle', bold: '12', meta: 'Kruševac · Završeno', units: '21 stan · 3 lokala', src: '/images/zgrada-sumrak-render.webp', alt: 'Vizuelizacija stambeno-poslovne zgrade u sumrak', ...cover, pos: 'center 72%', isRender: true },
+{ n: '04', light: 'Heroja sa Košara,', bold: 'Objekat 2', meta: 'Vrnjačka Banja · U izgradnji', units: '26 stanova', src: '/images/heroja-sa-kosara-objekat-2-render.webp', alt: 'Vizuelizacija stambene zgrade u ulici Heroja sa Košara u Vrnjačkoj Banji', ...cut, isRender: true },
+{ n: '05', light: 'Heroja sa Košara,', bold: 'Objekat 1', meta: 'Vrnjačka Banja · Druga faza', units: '26 stanova', src: '', alt: '', ...cut, stage: '#E6E3DC', isRender: false }
+];
+const projects = list.map((p, i) => {
+const center = pad + introW + gap + i * (panelW + gap) + panelW / 2;
+const off = Math.max(-1, Math.min(1, (center - x - w / 2) / w));
+const shift = this.reduce ? 0 : off * -40;
+return { ...p, hasImage: !!p.src, placeholder: !p.src, aria: p.light + ' ' + p.bold + ', ' + p.meta, shift: 'translate3d(' + shift.toFixed(1) + 'px, 0, 0)' };
+});
+return {
+onScroll: (ev) => {
+const el = ev.currentTarget;
+const y = el.scrollTop, vw = el.clientWidth, vh = el.clientHeight;
+if (this._raf) return;
+this._raf = requestAnimationFrame(() => { this._raf = null; this.setState({ t: y, w: vw, h: vh }); });
+},
+s2Height: (h + D) + 'px',
+s3Height: s3 + 'px',
+s4Height: (h + 4 * h) + 'px',
+s4Step: s4Step,
+trackTransform: 'translate3d(' + (-x).toFixed(1) + 'px, 0, 0)',
+projects: projects,
+textTransform: 'translateY(' + (-e * 208).toFixed(1) + 'px)',
+frameTop: (347 * k).toFixed(1) + 'px',
+frameLeft: 'calc(((100% - 424px) / 3 + 176px) * ' + k.toFixed(4) + ')',
+frameRight: (80 * k).toFixed(1) + 'px',
+imgTransform: 'scale(' + lerp(1, 1.04).toFixed(4) + ')',
+overlayOpacity: e.toFixed(3),
+tagTop: lerp(24, 100).toFixed(1) + 'px',
+tagRight: lerp(24, 80).toFixed(1) + 'px',
+cardOpacity: card.toFixed(3),
+cardTransform: 'translateY(' + ((1 - cardIn) * 24).toFixed(1) + 'px)',
+cardPointer: card > 0.5 ? 'auto' : 'none',
+headerBg: dark ? 'rgba(244,242,238,0)' : 'rgba(244,242,238,1)',
+headerFg: dark ? '#F4F2EE' : '#1C1D20',
+logoDark: dark ? 0 : 1,
+logoLight: dark ? 1 : 0
+};
+}
+}
+</script>
+</body>
+</html>
